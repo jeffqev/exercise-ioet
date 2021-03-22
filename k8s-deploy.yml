@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exercise-k8s
+  labels:
+    app: exercise
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: exercise
+  template:
+    metadata:
+      labels:
+        app: exercise
+    spec:
+      containers:
+      - name: exercise
+        image: exercise-deploy:v1
+        imagePullPolicy: IfNotPresent
